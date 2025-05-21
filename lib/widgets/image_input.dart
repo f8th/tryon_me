@@ -73,7 +73,7 @@ class _ImageInputState extends State<ImageInput> {
                 _selectMethod(value as String);
               },
             ),
-            Text('Upload File'),
+            const Text('Upload File'),
             Radio(
               value: 'url',
               groupValue: _selectedMethod,
@@ -81,7 +81,7 @@ class _ImageInputState extends State<ImageInput> {
                 _selectMethod(value as String);
               },
             ),
-            Text('Paste URL'),
+            const Text('Paste URL'),
           ],
         ),
         if (_selectedMethod == 'file')
@@ -89,7 +89,7 @@ class _ImageInputState extends State<ImageInput> {
             children: [
               ElevatedButton(
                 onPressed: _pickFile,
-                child: Text('Select File'),
+                child: const Text('Select File'),
               ),
               if (_selectedFile != null)
                 Image.file(
@@ -105,14 +105,14 @@ class _ImageInputState extends State<ImageInput> {
             children: [
               TextField(
                 controller: urlController,
-                decoration: InputDecoration(labelText: 'Image URL'),
+                decoration: const InputDecoration(labelText: 'Image URL'),
                 onSubmitted: _setUrl,
               ),
               ElevatedButton(
                 onPressed: () {
                   _setUrl(urlController.text);
                 },
-                child: Text('Set URL'),
+                child: const Text('Set URL'),
               ),
               if (_selectedUrl != null)
                 Image.network(

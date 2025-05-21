@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-// import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'screens/main_screen.dart';
 import 'screens/results_screen.dart';
 import 'utils/routes.dart';
 
-void main() {
-  // await dotenv.load(fileName: "../.env");
-  runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: ".env"); 
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {

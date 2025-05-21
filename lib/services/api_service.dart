@@ -1,7 +1,7 @@
 import 'package:cross_file/cross_file.dart';
 import 'package:fal_client/fal_client.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:tryon_me/models/image_input_data.dart';
 
 class ApiService {
@@ -9,11 +9,9 @@ class ApiService {
   factory ApiService() => _instance;
   ApiService._internal();
 
-  // Initialize FalClient with your API key
-  final fal = FalClient.withCredentials('');
-  
-  final falImg = FalClient.withCredentials(
-      '');
+  // Initialize FalClient with your API key from .env
+  final fal = FalClient.withCredentials(dotenv.env['FAL_API_KEY'] ?? '');
+  final falImg = FalClient.withCredentials(dotenv.env['FAL_API_KEY'] ?? '');
 
   /// Uploads a file to Fal's storage and returns the URL.
   Future<String> getImageUrl(ImageInputData data) async {
